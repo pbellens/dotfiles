@@ -1,5 +1,4 @@
--- This is an example chadrc file , its supposed to be placed in /lua/custom dir
--- lua/custom/chadrc.lua
+-- Just an example, supposed to be placed in /lua/custom/
 
 local M = {}
 
@@ -7,15 +6,18 @@ local M = {}
 -- example of changing theme:
 
 M.ui = {
-   theme = "gruvbox",
+  theme = "everforest",
 }
 
-M.plugins = {   
-  options = {      
-    lspconfig = {         
-      setup_lspconf = "custom.plugins.lspconfig",      
-    },   
-  },
+M.plugins = {
+  user = {
+    ["neovim/nvim-lspconfig"] = {
+      config = function()
+        require "plugins.configs.lspconfig"
+        require "custom.plugins.lspconfig"
+      end,
+    },
+  }
 }
 
 return M

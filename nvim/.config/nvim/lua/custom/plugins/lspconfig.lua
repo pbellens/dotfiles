@@ -1,8 +1,32 @@
-local M = {}
+local on_attach = require("plugins.configs.lspconfig").on_attach
+local capabilities = require("plugins.configs.lspconfig").capabilities
 
-M.setup_lsp = function(attach, capabilities)   
-  local lspconfig = require "lspconfig"
+local lspconfig = require "lspconfig"
 
+<<<<<<< HEAD
+lspconfig["clangd"].setup {         
+  on_attach = on_attach,         
+  capabilities = capabilities,         
+  flags = {            
+    debounce_text_changes = 150,         
+  },
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--suggest-missing-includes",
+    "-j=4"
+  },
+  filetypes = {"c", "cpp", "cxx", "h", "hpp", "hxx"}
+}
+
+lspconfig["pyright"].setup {         
+  on_attach = on_attach,         
+  capabilities = capabilities,         
+  flags = {            
+    debounce_text_changes = 150,         
+  },      
+}
+=======
    -- lspservers with default config
   local servers = { "clangd", "rust_analyzer" }
   
@@ -36,3 +60,4 @@ M.setup_lsp = function(attach, capabilities)
 end
 
 return M
+>>>>>>> 4efafc60fd0e38092a6cee476196dc11eec7de5c
