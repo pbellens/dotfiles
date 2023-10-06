@@ -10,9 +10,13 @@ lspconfig["clangd"].setup{
     debounce_text_changes = 150,
   },
   cmd = {
-    "clangd",
+     "clangd",
     "--background-index",
+    "--pch-storage=memory",
     "--suggest-missing-includes",
+    "--inlay-hints",
+    "--completion-style=detailed",
+    "--offset-encoding=utf-16", --temporary fix for null-ls
     "-j=4"
   },
   filetypes = {"c", "cpp", "cxx", "h", "hpp", "hxx"}
