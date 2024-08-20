@@ -19,7 +19,7 @@ lspconfig["clangd"].setup{
     "--offset-encoding=utf-16", --temporary fix for null-ls
     "-j=4"
   },
-  filetypes = {"c", "cpp", "cxx", "h", "hpp", "hxx"}
+  filetypes = {"c", "cpp", "cxx", "h", "hpp", "hxx", "txx"}
 }
 
 lspconfig["pyright"].setup{
